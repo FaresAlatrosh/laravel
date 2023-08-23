@@ -22,21 +22,13 @@
 @section("content")
 <div class="row">
     <div class="col-md-12">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error )
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
         @if (Session::has('msg'))
         <div class="alert alert-success">{{ Session::get('msg') }}</div>
         @endif
         <div class="card">
-          <form class="form-horizontal" action="{{ route('employees.store') }}" enctype="multipart/form-data" method="post">
+          <form class="form-horizontal" action="{{ route('employees.update',$data->SSN) }}" enctype="multipart/form-data" method="post">
             @csrf
+            @method('PUT')
             <div class="card-body">
             <div class="form-group row">
                 <label
@@ -47,14 +39,12 @@
                 <div class="col-sm-9">
                   <input
                     type="text"
-                    class="form-control @error('SSN') is-invalid @enderror"
+                    class="form-control"
                     id="SSN"
                     placeholder="SSN Here"
                     name="SSN"
+                    value="{{ $data->SSN }}"
                   />
-                  @error('SSN')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
                 </div>
               </div>
               <div class="form-group row">
@@ -66,14 +56,12 @@
                 <div class="col-sm-9">
                   <input
                     type="text"
-                    class="form-control @error('Fname') is-invalid @enderror"
+                    class="form-control"
                     id="fname"
                     placeholder="First Name Here"
                     name="Fname"
+                    value="{{ $data->Fname }}"
                   />
-                  @error('Fname')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
                 </div>
               </div>
               <div class="form-group row">
@@ -85,14 +73,12 @@
                 <div class="col-sm-9">
                   <input
                     type="text"
-                    class="form-control @error('Lname') is-invalid @enderror"
+                    class="form-control"
                     id="Lname"
                     placeholder="Second Name Here"
                     name="Lname"
+                    value="{{ $data->Lname }}"
                   />
-                  @error('Lname')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
                 </div>
               </div>
               <div class="form-group row">
@@ -104,14 +90,12 @@
                 <div class="col-sm-9">
                   <input
                     type="email"
-                    class="form-control @error('Email') is-invalid @enderror"
+                    class="form-control"
                     id="Email"
                     placeholder="Email Here"
                     name="Email"
+                    value="{{ $data->email }}"
                   />
-                  @error('Email')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
                 </div>
               </div>
               <div class="form-group row">
@@ -139,10 +123,13 @@
                   <div class="form-check">
                   <input
                     type="radio"
-                    class="form-check-input @error('Gender') is-invalid @enderror"
+                    class="form-check-input"
                     id="customControlValidation1"
                     name="Gender"
-                    value="M"
+                    value="m"
+                    @if ($data->gender == 'm')
+                        checked
+                    @endif
                   />
                   <label
                   for="customControlValidation1"
@@ -157,7 +144,10 @@
                       class="form-check-input"
                       id="customControlValidation2"
                       name="Gender"
-                      value="F"
+                      value="f"
+                      @if ($data->gender == 'f')
+                        checked
+                    @endif
                     />
                     <label
                     for="customControlValidation2"
@@ -166,9 +156,6 @@
                     >
                   </div>
                 </div>
-                @error('Gender')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
               </div>
               </div>
               <!-- <div class="form-group row">
@@ -196,7 +183,11 @@
                 <div class="col-sm-9">
                   <select class="form-control" name="Dno">
                     @foreach ($deptData as $dept)
-                    <option value="{{ $dept['dno'] }}">{{ $dept['dname'] }}</option>
+                    <option value="{{ $dept['dno'] }}"
+                    @if ($data->dno == $dept->dno)
+                    selected
+                    @endif
+                    >{{ $dept['dname'] }}</option>
 
                     @endforeach
                   </select>
