@@ -5,7 +5,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="#"
+                  href="{{ route('home') }}"
                   aria-expanded="false"
                   ><i class="mdi mdi-view-dashboard"></i
                   ><span class="hide-menu">Home</span></a
@@ -55,12 +55,7 @@
                       ><span class="hide-menu"> All Departments </span></a
                     >
                   </li>
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
-                      ><i class="mdi mdi-note-plus"></i
-                      ><span class="hide-menu"> Add Departments </span></a
-                    >
-                  </li>
+
                 </ul>
               </li>
             </ul>

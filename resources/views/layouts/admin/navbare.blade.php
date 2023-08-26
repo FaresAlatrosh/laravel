@@ -9,7 +9,7 @@
               <b class="logo-icon ps-2">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img src="{{ URL::asset('assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" width="25"/>
+                <img src="{{ URL::asset('assets/img/logo-icon.png') }}" alt="homepage" class="light-logo" width="25"/>
               </b>
               <!--End Logo icon -->
               <!-- Logo text -->
@@ -65,7 +65,7 @@
                   aria-expanded="false"
                 >
                   <img
-                    src="{{ URL::asset('assets/images/users/1.jpg') }}"
+                    src="{{ URL::asset('assets/img/users/1.jpg') }}"
                     alt="user"
                     class="rounded-circle"
                     width="31"
@@ -90,4 +90,3 @@
             </ul>
           </div>
         </nav>
-      

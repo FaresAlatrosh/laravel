@@ -36,7 +36,8 @@ class EmployeeRequest extends FormRequest
     public function messages(){
         return [
             'SSN.required'=>'SSN must be required',
-            'SSN.unique'=>'SSN must be unique'
+            'SSN.unique'=>'SSN must be unique',
+            'SSN.numeric'=>'SSN must be numeric'
 
         ];
     }

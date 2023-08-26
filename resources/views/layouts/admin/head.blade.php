@@ -17,7 +17,7 @@
     rel="icon"
     type="image/png"
     sizes="16x16"
-    href="{{ URL::asset('assets/images/favicon.png') }}"
+    href="{{ URL::asset('assets/img/favicon.png') }}"
   />
   <!-- Custom CSS -->
   <link href="{{ URL::asset('assets/css/style.min.css') }}" rel="stylesheet" />

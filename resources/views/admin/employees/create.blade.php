@@ -22,18 +22,7 @@
 @section("content")
 <div class="row">
     <div class="col-md-12">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error )
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        @if (Session::has('msg'))
-        <div class="alert alert-success">{{ Session::get('msg') }}</div>
-        @endif
+            
         <div class="card">
           <form class="form-horizontal" action="{{ route('employees.store') }}" enctype="multipart/form-data" method="post">
             @csrf
